@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Account</title>
     <link rel="stylesheet" href="{% static 'main.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -16,7 +16,7 @@
     <div class="header">
         <div class="nav">
             <div class="nav-item"><a href="{% url 'main:index' %}">Home</a></div>
-            <div class="nav-item"><a href="#">Equipment List</a></div>
+            <div class="nav-item"><a href="{% url 'main:equipment-list' %}">Equipment List</a></div>
             <div class="nav-item"><a href="#">Bookings</a></div>
             <div class="nav-item"><a href="#">Generate Reports</a></div>
             <div class="nav-item"><a href="#">Inventory Counts</a></div>
