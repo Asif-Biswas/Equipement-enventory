@@ -1,0 +1,189 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.header{
+    height: 70px;
+    background-color: #347677;
+}
+.footer{
+    height: 50px;
+    background-color: #347677;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    margin-top: 20px;
+}
+.reg-text{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    width: 70%;
+    float: right;
+    height: 100%;
+    color: #fff;
+
+}
+.nav-item a{
+    list-style: none;
+    text-decoration: none;
+    display: inline;
+    margin: 0px 10px;
+    cursor: pointer;
+    color: #fff;
+}
+.nav-item i{
+    font-size: 30px;
+}
+/*------------------ Sign Up Page---------------------  */
+
+
+.main-container{
+    width: 300px;
+    min-height: 350px;
+    border: 30px solid #469ba5;
+    position: relative;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 30px;
+
+}
+.form-top{
+    text-align: center;
+}
+.input-group{
+    margin-left: 15px;
+    margin-bottom: 25px;
+}
+form input{
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    outline: None;
+    border: 1px solid silver;
+    background-color: #f9f9f9;
+    padding-left: 10px;
+}
+input[type=checkbox]{
+    width: auto;
+    height: auto;
+    border-radius: auto;
+}
+#submit-btn{
+    height: 25px;
+    border-radius: 5px;
+    background-color: #f09035;
+    color: #fff;
+    width: 95% !important;
+    cursor: pointer;
+    
+}
+h2{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px auto;
+}
+p{
+    margin: 5px 15px;
+    font-size: 11px;
+
+}
+#close{
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px !important;
+    font-weight: bold;
+
+}
+#lock{
+    position: absolute;
+    left: 25px;
+    margin-top: 7px;
+    color: #fff;
+}
+.input-group p{
+    margin: 0px;
+}
+
+/* ------------------user accounts--------------------- */
+
+.user-accounts-container{
+    width: 700px;
+    position: relative;
+    margin: auto;
+    margin-top: 20px;
+    border: 1px solid silver;
+    min-height: 400px;
+    overflow: hidden;
+    
+}
+.user-account-header{
+    background-color: #347677;
+    color: #fff;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+.user-account-footer{
+    background-color: #347677;
+    color: #fff;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    
+}
+.user-details{
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 30px;
+}
+.lable{
+    background-color: #347677;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px;
+    font-weight: 600;
+    margin-right: 10px;
+    border: 10px solid white;
+    width: 150px;
+}
+td input[type=text]{
+    width: 450px;
+    outline: none;
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 5px;
+}
+.update-btn{
+    display: block;
+    position: relative;
+    margin:auto;
+    margin-top: 30px;
+    padding: 5px 20px;
+    cursor: pointer;
+    width: 100px;
+}
+.btn-group{
+    float: right;
+    margin-right: 10px;
+}
+.btn-group button{
+    padding: 5px 10px;
+    margin: 0px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+}

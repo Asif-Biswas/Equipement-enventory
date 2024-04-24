@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="header">
+        <div class="nav">
+            <div class="nav-item"><a href="{% url 'main:index' %}">Home</a></div>
+            <div class="nav-item"><a href="#">Equipment List</a></div>
+            <div class="nav-item"><a href="#">Bookings</a></div>
+            <div class="nav-item"><a href="#">Generate Reports</a></div>
+            <div class="nav-item"><a href="#">Inventory Counts</a></div>
+            <div class="nav-item"><a href="#">User Management</a></div>
+            <div class="nav-item"><a href="#"><i class="fa fa-cart-shopping"></i></a></div>
+            <div class="nav-item"><a href="#"><i class="fa fa-circle-user"></i></a></div>
+        </div>
+    </div>
+
+    <div class="user-accounts-container">
+        <div class="user-account">
+            <div class="user-account-header">
+                <h2>User Accounts</h2>
+
+            </div>
+            <form action="{% url 'main:update-profile' %}" method="post">
+                {% csrf_token %}
+            <div class="user-account-body">
+                
+                   
+                   
+                
+                <table class="user-details">
+                    <tr>
+                        <td class="lable">First Name</td>
+                        <td><input type="text" name="first-name" value="{{user.user.first_name}}"></td>
+                    </tr>
+                    <tr>
+                        <td class="lable">Last Name</td>
+                        <td><input type="text" name="last-name" value="{{user.user.last_name}}"></td>
+                    </tr>
+                    <tr>
+                        <td class="lable">Email Address</td>
+                        <td><input type="text" name="email" value="{{user.user.email}}"></td>
+                    </tr>
+                    <tr>
+                        <td class="lable">Roles</td>
+                        <td class="reg-text"><input type="checkbox" name="admin-user" {% if user.role == 'Admin User' %} checked {% endif %}>Admin User(All workspaces)<br><input type="checkbox" name="regular-user" {% if user.role == 'Regular User' %} checked {% endif %}>Regular User</td>
+                    </tr>
+
+                </table>
+                <input type="submit" class="update-btn" value="Update">
+                
+                
+            </div>
+        </form>
+            <div class="user-account-footer">
+                <div class="btn-group">
+                    <button style="background-color: #de858e; color: #fff;">Cancel</button>
+                    <button>Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="footer"></div>
+</body>
+
+</html>

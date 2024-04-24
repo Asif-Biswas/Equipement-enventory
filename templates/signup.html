@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="header"></div>
+
+    <div class="main-container">
+        <span id="close"><i class="fa fa-xmark"></i></span>
+        <div class="form-top reg-text">
+            <h2>Sign Up</h2>
+            <p>Sign Up to join</p>
+            <p>Already have an account? <a href="">Login.</a></p>
+        </div>
+        <form action="{% url 'main:signup' %}" class="reg-text" id="signup-form" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="full-name">Full Name </label>
+                <input type="text" name="full-name" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email </label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password </label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm-password">Confirm Password </label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+            <div class="input-group">
+                <input type="submit" value="Sign Up" id="submit-btn">
+                <i class="fa fa-lock" id="lock"></i>
+            </div>
+            
+            <p>By clicking the "Sign Up" button, you are creating an account and you agree to the Terms of Use. </p>
+        </form>
+    </div>
+
+    <div class="footer" style="position: relative;"></div>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Reset previous error messages
+            resetErrors();
+
+            let email = document.querySelector('input[type="email"]');
+            let password = document.getElementById('password');
+            let cPassword = document.getElementById('confirm-password');
+            let inputGroups = document.querySelectorAll('.input-group');
+            let isValid = true;
+
+            let emailEnd = email.value.split('@')[1];
+            if (emailEnd.toLowerCase() !== "westminster.ac.uk") {
+                isValid = false;
+                setError(email, 'Please enter a valid email address ending with @westminster.ac.uk');
+                inputGroups[1].style.color = 'red';
+            }else{
+                inputGroups[1].style.color = 'black';
+            }
+
+            // Check if the password contains a special character and has a minimum length of 8
+            if (password.value.length < 8 || !password.value.match(/[^a-zA-Z0-9]/g)) {
+                isValid = false;
+                setError(password, 'Password must contain at least 8 characters and 1 special character');
+                inputGroups[2].style.color = 'red';
+            }else{
+                inputGroups[2].style.color = 'black';
+            }
+
+            // Check if passwords match
+            if (password.value !== cPassword.value) {
+                isValid = false;
+                setError(cPassword, 'Passwords must match');
+                inputGroups[3].style.color = 'red';
+            }else{
+                inputGroups[3].style.color = 'black';
+            }
+
+            // If form is valid, submit the form
+            if (isValid) {
+                document.getElementById('signup-form').method = "post";
+                this.submit();
+            }
+        });
+
+        function setError(inputElement, message) {
+            inputElement.style.border = '1px solid red';
+            let errorMessage = document.createElement('p');
+            errorMessage.textContent = message;
+            inputElement.parentNode.appendChild(errorMessage);
+        }
+
+        function resetErrors() {
+            let errorMessages = document.querySelectorAll('.input-group p');
+            errorMessages.forEach(function(errorMessage) {
+                errorMessage.remove();
+            });
+
+            let inputFields = document.querySelectorAll('.input-group input');
+            inputFields.forEach(function(inputField) {
+                inputField.style.border = '';
+            });
+        }
+    </script>
+</body>
+</html>
